@@ -4,5 +4,4 @@ namespace cmoncy\kataMarkovChain;
 
 class Analyser
 {
-
 }

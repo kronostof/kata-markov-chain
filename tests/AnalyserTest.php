@@ -12,4 +12,9 @@ class AnalyserTest extends TestCase
         $analyser = new Analyser();
         Assert::assertEquals(1,1);
     }
+
+    public function testIHaveAText($variable): bool
+    {
+        return isset($variable) === true ? false : true;
+    }
 }
