@@ -32,5 +32,27 @@ class AnalyserTest extends TestCase
             'Coucou chat',
             ['Coucou' => ['chat' => 1]]
         ];
+
+        yield [
+            'coucou le chat coucou le chien',
+            [
+                'coucou' => [
+                    'le' => 2,
+                ],
+                'le' => [
+                    'chat' => 1,
+                    'chien' => 1
+                ],
+                'chat' => [
+                    'coucou' => 1
+                ]
+            ]
+        ];
+    }
+
+    public function testAnalyseNoFile(): void
+    {
+        $analyser = new Analyser();
+        $analyser->analyseFile();
     }
 }

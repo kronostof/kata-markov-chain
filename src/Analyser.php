@@ -25,4 +25,9 @@ class Analyser
 
         return $result;
     }
+
+    public function analyseFile()
+    {
+
+    }
 }
