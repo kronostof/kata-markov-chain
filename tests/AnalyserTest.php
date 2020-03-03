@@ -13,10 +13,24 @@ class AnalyserTest extends TestCase
         Assert::assertEquals(1,1);
     }
 
-    public function testParseString(): void
+    /** @dataProvider stringProvider */
+    public function testParseString(string $input, array $expected): void
     {
         $analyser = new Analyser();
 
-        Assert::assertEquals([], $analyser->analyse(''));
+        Assert::assertEquals($expected, $analyser->analyse($input));
+    }
+
+    public function stringProvider(): Generator
+    {
+        yield [
+            '',
+            []
+        ];
+
+        yield [
+            'Coucou chat',
+            ['Coucou' => ['chat' => 1]]
+        ];
     }
 }
