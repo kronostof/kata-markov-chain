@@ -53,6 +53,6 @@ class AnalyserTest extends TestCase
     public function testAnalyseNoFile(): void
     {
         $analyser = new Analyser();
-        $analyser->analyseFile();
+        Assert::assertTrue($analyser->analyseFile('/usr/local/var/www/kata-markov-chain/tests/histoireM6.txt'));
     }
 }

@@ -26,8 +26,11 @@ class Analyser
         return $result;
     }
 
-    public function analyseFile()
+    public function analyseFile(string $text): bool
     {
-
+        if (file_exists($text)) {
+            return true;
+        }
+        return false;
     }
 }
