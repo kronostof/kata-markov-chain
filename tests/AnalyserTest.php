@@ -12,4 +12,11 @@ class AnalyserTest extends TestCase
         $analyser = new Analyser();
         Assert::assertEquals(1,1);
     }
+
+    public function testParseString(): void
+    {
+        $analyser = new Analyser();
+
+        Assert::assertEquals([], $analyser->analyse(''));
+    }
 }
