@@ -7,18 +7,20 @@ use PHPUnit\Framework\TestCase;
 
 class AnalyserTest extends TestCase
 {
-    public function testMy(): void
+    public function test constructor fails(): void
     {
-        $analyser = new Analyser();
-        Assert::assertEquals(1,1);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectDeprecationMessage('File not found.');
+
+        $analyser = new Analyser('toto');
     }
 
     /** @dataProvider stringProvider */
     public function testParseString(string $input, array $expected): void
     {
-        $analyser = new Analyser();
+        $analyser = new Analyser('/home/vclaras/M6/Repositories/kronostof/kata-markov-chain/tests/histoireM6.txt');
 
-        Assert::assertEquals($expected, $analyser->analyse($input));
+        Assert::assertEquals($expected, $analyser->analyse());
     }
 
     public function stringProvider(): Generator
@@ -50,9 +52,9 @@ class AnalyserTest extends TestCase
         ];
     }
 
-    public function testAnalyseNoFile(): void
-    {
-        $analyser = new Analyser();
-        Assert::assertTrue($analyser->analyseFile('/usr/local/var/www/kata-markov-chain/tests/histoireM6.txt'));
-    }
+//    public function testAnalyseNoFile(): void
+//    {
+//        $analyser = new Analyser();
+//        Assert::assertTrue($analyser->analyseFile('/usr/local/var/www/kata-markov-chain/tests/histoireM6.txt'));
+//    }
 }
