@@ -69,6 +69,28 @@ class WordSplitterTest extends TestCase
             'pas',
             '…',
         ];
+
+        yield 'numbers' => [
+            $this->getInputText('Les 2 chats de 1988 pèsent 4,25 Kgs!'),
+            'Les',
+            ' ',
+            '2',
+            ' ',
+            'chats',
+            ' ',
+            'de',
+            ' ',
+            '1988',
+            ' ',
+            'pèsent',
+            ' ',
+            '4',
+            ',',
+            '25',
+            ' ',
+            'Kgs',
+            '!',
+        ];
     }
 
     private function getInputText(string $text): InputText

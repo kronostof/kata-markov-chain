@@ -11,7 +11,7 @@ class WordSplitter implements \cmoncy\kataMarkovChain\Analyser\WordSplitter
         $buffer = '';
 
         foreach ($text->streamCharacters() as $char) {
-            $match = preg_match('#\w#u', $char);
+            $match = preg_match('#\w|\d#u', $char);
 
             if ($match) {
                 $buffer .= $char;
