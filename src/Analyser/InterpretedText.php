@@ -6,6 +6,8 @@ class InterpretedText
 {
     /** @var int[][] */
     private $occurrences = [];
+    /** @var int[] */
+    private $totalOccurrencesByWords = [];
 
     public function addOccurrence($word, $nextWord): void
     {
@@ -14,11 +16,22 @@ class InterpretedText
         }
 
         $this->occurrences[$word][$nextWord]++;
+        $this->totalOccurrencesByWords[$nextWord] = ($this->totalOccurrencesByWords[$nextWord] ?? 0) + 1;
     }
 
-    public function getNextWordOccurrences($word, $nextWords): int
+    public function getWords(): array
     {
-        return $this->occurrences[$word][$nextWords] ?? 0;
+        return array_keys($this->occurrences);
+    }
+
+    public function getNextWordsOccurrences(string $word): array
+    {
+        return $this->occurrences[$word] ?? [];
+    }
+
+    public function getOccurrences(string $word): int
+    {
+        return $this->totalOccurrencesByWords[$word] ?? 0;
     }
 
     public function count(): int
