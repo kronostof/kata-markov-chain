@@ -16,7 +16,7 @@ class InterpretedText
         $this->occurrences[$word][$nextWord]++;
     }
 
-    public function getOccurrences($word, $nextWords): int
+    public function getNextWordOccurrences($word, $nextWords): int
     {
         return $this->occurrences[$word][$nextWords] ?? 0;
     }

@@ -17,7 +17,7 @@ class AnalyserTest extends TestCase
             foreach ($expectedWordCount as $followingWord => $expectedCount) {
                 $this->assertSame(
                     $expectedCount,
-                    $result->getOccurrences($word, $followingWord)
+                    $result->getNextWordOccurrences($word, $followingWord)
                 );
             }
         }
