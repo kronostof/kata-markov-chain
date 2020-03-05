@@ -14,12 +14,8 @@ class Chain
         }
     }
 
-    public function pick(): ?Word
+    public function pick(Randomizer $randomizer): ?Word
     {
-        if (count($this->words) === 0) {
-            return null;
-        }
-
-        return $this->words[mt_rand(0, count($this->words) - 1)];
+        return $randomizer->pickOne($this->words);
     }
 }
